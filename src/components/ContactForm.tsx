@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import emailjs from '@emailjs/browser';
-
+import emailjs from '@emailjs/browser'
 import {
   FaLinkedin,
   FaGithub,
@@ -11,7 +10,7 @@ import {
   FaInstagram,
 } from 'react-icons/fa'
 
-// ✅ Type-safe transition object
+// ✅ Motion variants
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -19,7 +18,7 @@ const containerVariants = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: 'easeOut' as const, // Fix: cast to known easing literal
+      ease: 'easeOut' as const,
     },
   },
 }
@@ -32,7 +31,7 @@ const ContactForm = () => {
   })
 
   useEffect(() => {
-    emailjs.init('nEpNUafsidpBZ8Y_k') // Replace with your PUBLIC KEY
+    emailjs.init('nEpNUafsidpBZ8Y_k') // ✅ Your EmailJS Public Key
   }, [])
 
   const handleChange = (
@@ -43,16 +42,17 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
     try {
-      // Send main message
+      // ✅ Send message
       await emailjs.send(
-        'service_19n4cja',         // Service ID
-        'template_z76g218',        // Template ID
+        'service_19n4cja', // Service ID
+        'template_z76g218', // Template ID
         formData,
-        'nEpNUafsidpBZ8Y_k'        // Public Key
+        'nEpNUafsidpBZ8Y_k' // Public Key
       )
 
-      // Send auto-reply
+      // ✅ Auto-reply
       await emailjs.send(
         'service_19n4cja',
         'template_fdyvl47',
@@ -91,7 +91,7 @@ const ContactForm = () => {
           onSubmit={handleSubmit}
           className="mt-10 frosted p-8 md:p-10 rounded-2xl shadow-xl backdrop-blur-xl space-y-8 border border-white/10 bg-black/30"
         >
-          {/* Name Field */}
+          {/* Name */}
           <div className="relative">
             <input
               type="text"
@@ -110,7 +110,7 @@ const ContactForm = () => {
             </label>
           </div>
 
-          {/* Email Field */}
+          {/* Email */}
           <div className="relative">
             <input
               type="email"
@@ -129,7 +129,7 @@ const ContactForm = () => {
             </label>
           </div>
 
-          {/* Message Field */}
+          {/* Message */}
           <div className="relative">
             <textarea
               name="message"
@@ -148,7 +148,7 @@ const ContactForm = () => {
             </label>
           </div>
 
-          {/* Submit Button */}
+          {/* Submit */}
           <div className="text-center mt-8">
             <button
               type="submit"
@@ -158,7 +158,7 @@ const ContactForm = () => {
             </button>
           </div>
 
-          {/* Social Links */}
+          {/* Social Icons */}
           <div className="mt-10 flex justify-center gap-6 text-2xl">
             <a
               href="https://www.linkedin.com/in/rushi-unge"
