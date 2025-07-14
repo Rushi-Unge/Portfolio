@@ -1,8 +1,7 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import emailjs from '@emailjs/browser'
 import {
   FaLinkedin,
   FaGithub,
@@ -10,7 +9,6 @@ import {
   FaInstagram,
 } from 'react-icons/fa'
 
-// ✅ Motion variants
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
@@ -30,45 +28,16 @@ const ContactForm = () => {
     message: '',
   })
 
-  useEffect(() => {
-    emailjs.init('nEpNUafsidpBZ8Y_k') // ✅ Your EmailJS Public Key
-  }, [])
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-
-    try {
-      // ✅ Send message
-      await emailjs.send(
-        'service_19n4cja', // Service ID
-        'template_z76g218', // Template ID
-        formData,
-        'nEpNUafsidpBZ8Y_k' // Public Key
-      )
-
-      // ✅ Auto-reply
-      await emailjs.send(
-        'service_19n4cja',
-        'template_fdyvl47',
-        {
-          name: formData.name,
-          email: formData.email,
-        },
-        'nEpNUafsidpBZ8Y_k'
-      )
-
-      alert('Message sent successfully!')
-      setFormData({ name: '', email: '', message: '' })
-    } catch (error) {
-      console.error('EmailJS Error:', error)
-      alert('Oops! Something went wrong. Please try again.')
-    }
+    alert('Message sending is temporarily disabled. Please try again later.')
+    setFormData({ name: '', email: '', message: '' })
   }
 
   return (
