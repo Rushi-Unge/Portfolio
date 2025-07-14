@@ -1,6 +1,6 @@
 "use client";
 
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -30,17 +30,17 @@ export default function Footer() {
         {/* Contact & Socials */}
         <div>
           <h3 className="text-base font-semibold mb-2">Get in Touch</h3>
-          <div className="flex gap-5 text-xl">
+          <div className="flex flex-wrap gap-5 text-xl">
             <a
-              href="https://github.com/RushikeshUnge"
+              href="https://github.com/Rushi-Unge"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#00f5d4] transition"
+              className="hover:text-white transition"
             >
               <FaGithub />
             </a>
             <a
-              href="https://linkedin.com/in/rushikeshunge"
+              href="https://linkedin.com/in/rushi-unge"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#38bdf8] transition"
@@ -52,6 +52,22 @@ export default function Footer() {
               className="hover:text-[#a855f7] transition"
             >
               <FaEnvelope />
+            </a>
+            <a
+              href="https://www.instagram.com/rushi_unge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-pink-500 transition"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://wa.me/919665924486"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-green-400 transition"
+            >
+              <FaWhatsapp />
             </a>
           </div>
           <a

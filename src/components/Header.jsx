@@ -67,7 +67,7 @@ export default function Header() {
           className="hidden md:flex"
         >
           <Link
-            href="#contact"
+            href="https://calendar.app.google/Ac9i4kTGmJ91fcjH9"
             className="px-5 py-2 rounded-full bg-gradient-to-br from-[#00f5d4] to-[#38bdf8] text-black font-semibold shadow hover:shadow-cyan-400/40 transition hover:scale-105"
           >
             Book a Call

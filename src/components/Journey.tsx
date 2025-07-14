@@ -47,15 +47,19 @@ const journeyItems: JourneyItem[] = [
     description:
       "Achieved 84.40% in SSC with a strong academic record. Developed discipline, curiosity, and a strong foundation in mathematics and science.",
   },
-];
+]
 
-
+// ✅ Fix Framer Motion ease type with correct literal casting
 const cardVariants = (index: number) => ({
   hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { delay: index * 0.1, duration: 0.5, ease: 'easeOut' },
+    transition: {
+      delay: index * 0.1,
+      duration: 0.5,
+      ease: 'easeOut' as const, // 👈 KEY FIX
+    },
   },
 })
 
@@ -72,7 +76,7 @@ const Journey: React.FC = () => {
         </p>
       </div>
 
-      {/* Cards */}
+      {/* Cards Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {journeyItems.map((item, index) => (
           <motion.div
@@ -85,6 +89,7 @@ const Journey: React.FC = () => {
           >
             <div className="p-6 bg-white/5 backdrop-blur rounded-xl shadow-md border border-white/10">
               <div className="flex items-start space-x-4">
+                {/* Icon */}
                 <div className="flex-shrink-0 mt-1">
                   <span
                     className={`flex h-10 w-10 items-center justify-center rounded-full text-white ${
@@ -104,6 +109,8 @@ const Journey: React.FC = () => {
                     )}
                   </span>
                 </div>
+
+                {/* Content */}
                 <div>
                   <h4 className="text-lg font-semibold text-white">{item.title}</h4>
                   <p className="text-sm text-gray-400">{item.year}</p>

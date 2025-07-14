@@ -3,10 +3,24 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import emailjs from 'emailjs-com'
+import {
+  FaLinkedin,
+  FaGithub,
+  FaWhatsapp,
+  FaInstagram,
+} from 'react-icons/fa'
 
+// ✅ Type-safe transition object
 const containerVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: 'easeOut' as const, // Fix: cast to known easing literal
+    },
+  },
 }
 
 const ContactForm = () => {
@@ -16,31 +30,31 @@ const ContactForm = () => {
     message: '',
   })
 
-  // ✅ Initialize EmailJS
   useEffect(() => {
     emailjs.init('nEpNUafsidpBZ8Y_k') // Replace with your PUBLIC KEY
   }, [])
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-
     try {
-      // ✅ Send Main Email
-      const result = await emailjs.send(
-        'service_19n4cja',        // Service ID
-        'template_z76g218',       // Template ID
+      // Send main message
+      await emailjs.send(
+        'service_19n4cja',         // Service ID
+        'template_z76g218',        // Template ID
         formData,
-        'nEpNUafsidpBZ8Y_k'       // Public Key
+        'nEpNUafsidpBZ8Y_k'        // Public Key
       )
 
-      // ✅ Send Auto Reply
+      // Send auto-reply
       await emailjs.send(
         'service_19n4cja',
-        'template_fdyvl47',       // Auto-reply template ID
+        'template_fdyvl47',
         {
           name: formData.name,
           email: formData.email,
@@ -65,15 +79,18 @@ const ContactForm = () => {
         viewport={{ once: true }}
         variants={containerVariants}
       >
-        <h2 className="section-title gradient-text">Get in Touch</h2>
-        <p className="section-description">
+        <h2 className="section-title gradient-text text-4xl font-bold text-white">
+          Get in Touch
+        </h2>
+        <p className="section-description text-gray-400">
           Got a project, idea, or opportunity? Let’s build something incredible together!
         </p>
 
         <form
           onSubmit={handleSubmit}
-          className="mt-10 frosted p-8 md:p-10 rounded-2xl shadow-xl backdrop-blur-xl space-y-8 border border-white/10"
+          className="mt-10 frosted p-8 md:p-10 rounded-2xl shadow-xl backdrop-blur-xl space-y-8 border border-white/10 bg-black/30"
         >
+          {/* Name Field */}
           <div className="relative">
             <input
               type="text"
@@ -92,6 +109,7 @@ const ContactForm = () => {
             </label>
           </div>
 
+          {/* Email Field */}
           <div className="relative">
             <input
               type="email"
@@ -110,6 +128,7 @@ const ContactForm = () => {
             </label>
           </div>
 
+          {/* Message Field */}
           <div className="relative">
             <textarea
               name="message"
@@ -128,10 +147,50 @@ const ContactForm = () => {
             </label>
           </div>
 
+          {/* Submit Button */}
           <div className="text-center mt-8">
-            <button type="submit" className="button-glow text-base px-6 py-2">
+            <button
+              type="submit"
+              className="px-6 py-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 text-black font-semibold shadow-md hover:shadow-cyan-500/30 transition"
+            >
               Send Message
             </button>
+          </div>
+
+          {/* Social Links */}
+          <div className="mt-10 flex justify-center gap-6 text-2xl">
+            <a
+              href="https://www.linkedin.com/in/rushi-unge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-300 hover:text-white transition transform hover:scale-110"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://github.com/Rushi-Unge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-cyan-300 transition transform hover:scale-110"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://wa.me/919665924486"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-400 hover:text-white transition transform hover:scale-110"
+            >
+              <FaWhatsapp />
+            </a>
+            <a
+              href="https://www.instagram.com/rushi_unge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-pink-400 hover:text-white transition transform hover:scale-110"
+            >
+              <FaInstagram />
+            </a>
           </div>
         </form>
       </motion.div>

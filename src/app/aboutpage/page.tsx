@@ -62,7 +62,7 @@ export default function AboutPage() {
         </div>
 
         <div className="text-left">
-          <h2 className="text-2xl font-semibold text-accent">Hi, I'm Rushikesh</h2>
+          <h2 className="text-2xl font-semibold text-accent">Hi, I&rsquo;m Rushikesh</h2>
           <p className="text-muted text-base mt-2 leading-relaxed">
             I’m a passionate <strong>Full Stack Developer</strong> with a deep love for backend architecture, real-time data apps, and clean, scalable design systems. I enjoy transforming ideas into fully functional, beautiful digital products.
             <br />

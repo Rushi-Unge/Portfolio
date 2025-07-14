@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaReact, FaNode, FaGithub, FaDocker } from "react-icons/fa";
-import { SiJavascript, SiTailwindcss, SiRedux, SiVite, SiBootstrap, SiMongodb, SiMysql, SiExpress, SiC, SiCplusplus, SiJava, SiGit } from "react-icons/si";
+import { SiJavascript, SiTailwindcss, SiRedux, SiVite, SiBootstrap, SiMongodb, SiMysql, SiExpress, SiC, SiCplusplus, SiGit } from "react-icons/si";
 
 const techSections = [
   {
@@ -76,7 +76,7 @@ export default function About() {
         transition={{ delay: 0.2, duration: 1 }}
         className="text-muted text-center max-w-3xl mx-auto mb-16 text-base sm:text-lg"
       >
-        I'm <span className="text-white font-semibold">Rushikesh Unge</span>, a passionate Full Stack Developer who enjoys solving real-world problems through clean, scalable, and intelligent code. Whether it’s frontend magic, backend architecture, or system design — I bring creativity and precision to every project. I enjoy building immersive UIs, real-time dashboards, and modern APIs. Always learning. Always building.
+        I&rsquo;m <span className="text-white font-semibold">Rushikesh Unge</span>, a passionate Full Stack Developer who enjoys solving real-world problems through clean, scalable, and intelligent code. Whether it’s frontend magic, backend architecture, or system design — I bring creativity and precision to every project. I enjoy building immersive UIs, real-time dashboards, and modern APIs. Always learning. Always building.
       </motion.p>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -1,13 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+
 import { Typewriter } from 'react-simple-typewriter';
+import {
+  FaLinkedin,
+  FaGithub,
+  FaInstagram,
+  FaWhatsapp,
+  FaTwitter,
+} from 'react-icons/fa';
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-center items-center px-4 md:px-12  bg-gray-900 text-foreground"
+      className="relative min-h-screen flex flex-col justify-center items-center px-4 md:px-12 bg-gray-900 text-foreground"
     >
       {/* Grid Container */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center w-full max-w-6xl z-10">
@@ -18,12 +27,12 @@ export default function Hero() {
           transition={{ duration: 1 }}
           className="text-center md:text-left"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
-            Hi, I'm{' '}
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight text-white">
+            Hi, I&apos;m{' '}
             <span className="text-cyan-400 drop-shadow-md">
               Rushikesh Unge
             </span>
-          </h1>
+          </h2>
 
           <p className="mt-4 text-base md:text-xl text-muted-foreground">
             <Typewriter
@@ -56,16 +65,48 @@ export default function Hero() {
             Let’s Connect
           </motion.a>
 
-          {/* Tech Stack Icons */}
-          <div className="mt-6 flex flex-wrap gap-4 justify-center md:justify-start">
-            {['react', 'nodejs', 'ts', 'mongodb'].map((tech, index) => (
-              <img
-                key={index}
-                src={`/icons/${tech}.png`}
-                alt={tech}
-                className="w-10 h-10 object-contain grayscale hover:grayscale-0 transition"
-              />
-            ))}
+          {/* Contact Icons */}
+          <div className="mt-6 flex gap-6 justify-center md:justify-start">
+            <a
+              href="https://www.linkedin.com/in/rushi-unge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-cyan-300 hover:text-white transition transform hover:scale-110 text-2xl"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://github.com/Rushi-Unge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-cyan-300 transition transform hover:scale-110 text-2xl"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://x.com/Rushi_Unge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-white transition transform hover:scale-110 text-2xl"
+            >
+              <FaTwitter />
+            </a>
+            <a
+              href="https://www.instagram.com/rushi_unge/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-pink-500 hover:text-white transition transform hover:scale-110 text-2xl"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://wa.me/919665924486"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-400 hover:text-white transition transform hover:scale-110 text-2xl"
+            >
+              <FaWhatsapp />
+            </a>
           </div>
         </motion.div>
 
@@ -77,9 +118,11 @@ export default function Hero() {
           className="flex justify-center md:justify-end"
         >
           <div className="relative w-60 h-60 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-cyan-400 shadow-xl">
-            <img
+            <Image
               src="/rus.jpg"
               alt="Rushikesh Unge"
+              width={300}
+              height={300}
               className="w-full h-full object-cover"
             />
           </div>
