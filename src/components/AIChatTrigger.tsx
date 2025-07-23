@@ -62,8 +62,7 @@ const AIChatTrigger = () => {
       className="fixed bottom-6 right-6 bg-gradient-to-r from-cyan-400 to-green-300 text-black font-semibold px-4 py-3 rounded-full shadow-lg hover:scale-105 transition z-50 flex items-center gap-2"
       title="Chat with AI"
     >
-      <FaRobot className="text-lg" />
-      <span className="hidden sm:inline">Ask Me</span>
+
     </button>
   );
 };
